@@ -1,0 +1,52 @@
+('dir', 1, 1): n=1449 R=0.160 f_line=1.0001 P=2.598  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dir', 3, 2): n=1710 R=0.213 f_line=0.9994 P=2.140  |a_n| n<=6: [1.0, 1.0, 0.0, 1.0, 1.0, 0.0]
+('dir', 4, 3): n=1779 R=0.264 f_line=0.9996 P=1.504  |a_n| n<=6: [1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+('dir', 5, 2): n=1834 R=0.162 f_line=1.0005 P=2.851  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 0.0, 1.0]
+('dh', 5, 2): n=1681 R=0.413 f_line=0.9171 P=1.289  |a_n| n<=6: [1.0, 0.284, 0.284, 1.0, 0.0, 1.0]
+('dir', 5, 4): n=1832 R=0.172 f_line=0.9994 P=2.851  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 0.0, 1.0]
+('dir', 7, 2): n=1913 R=0.144 f_line=0.9998 P=3.223  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 7, 2): n=1768 R=0.389 f_line=0.9240 P=1.457  |a_n| n<=6: [1.0, 0.297, 0.703, 0.703, 0.297, 1.0]
+('dir', 7, 3): n=1913 R=0.149 f_line=0.9998 P=3.223  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 7, 3): n=1651 R=0.347 f_line=0.8629 P=2.126  |a_n| n<=6: [1.0, 0.076, 1.076, 1.076, 0.076, 1.0]
+('dir', 7, 6): n=1911 R=0.149 f_line=0.9988 P=3.223  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dir', 8, 3): n=1945 R=0.249 f_line=0.9999 P=1.682  |a_n| n<=6: [1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+('dir', 8, 5): n=1941 R=0.245 f_line=0.9978 P=1.682  |a_n| n<=6: [1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+('dir', 11, 2): n=2018 R=0.130 f_line=0.9984 P=3.596  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 11, 2): n=1934 R=0.297 f_line=0.9568 P=1.736  |a_n| n<=6: [1.0, 0.896, 0.169, 0.449, 0.723, 0.723]
+('dir', 11, 3): n=2020 R=0.126 f_line=0.9994 P=3.596  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 11, 3): n=1866 R=0.296 f_line=0.9232 P=1.900  |a_n| n<=6: [1.0, 0.631, 1.008, 0.61, 0.013, 0.013]
+('dir', 11, 5): n=2022 R=0.130 f_line=1.0004 P=3.596  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 11, 5): n=1846 R=0.299 f_line=0.9133 P=2.012  |a_n| n<=6: [1.0, 0.526, 0.767, 0.148, 1.092, 1.092]
+('dir', 11, 7): n=2021 R=0.127 f_line=0.9999 P=3.596  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 11, 7): n=1467 R=0.225 f_line=0.7258 P=10.297  |a_n| n<=6: [1.0, 1.73, 0.451, 2.069, 2.348, 2.348]
+('dir', 11, 10): n=2022 R=0.140 f_line=1.0004 P=3.596  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dir', 12, 11): n=2038 R=0.351 f_line=0.9980 P=1.032  |a_n| n<=6: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+('dir', 13, 2): n=2059 R=0.116 f_line=0.9990 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 13, 2): n=1873 R=0.219 f_line=0.9087 P=2.478  |a_n| n<=6: [1.0, 1.146, 0.015, 0.985, 0.56, 0.586]
+('dir', 13, 3): n=2062 R=0.136 f_line=1.0004 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 13, 3): n=1775 R=0.341 f_line=0.8612 P=2.651  |a_n| n<=6: [1.0, 0.169, 0.169, 1.169, 1.0, 1.169]
+('dir', 13, 4): n=2060 R=0.131 f_line=0.9994 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 13, 4): n=1922 R=0.303 f_line=0.9325 P=1.883  |a_n| n<=6: [1.0, 0.738, 0.738, 0.262, 1.0, 0.262]
+('dir', 13, 5): n=2057 R=0.131 f_line=0.9980 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 13, 5): n=1707 R=0.288 f_line=0.8282 P=2.813  |a_n| n<=6: [1.0, 0.742, 1.0, 1.0, 0.742, 0.742]
+('dir', 13, 6): n=2061 R=0.128 f_line=0.9999 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+('dh', 13, 6): n=1646 R=0.170 f_line=0.7986 P=4.064  |a_n| n<=6: [1.0, 1.386, 0.4, 1.4, 1.039, 0.346]
+('dir', 13, 12): n=2059 R=0.128 f_line=0.9990 P=3.726  |a_n| n<=6: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+zeta at T~1.73e+03: R=0.180 P=2.38 (n=1820)
+zeta at T~1.41e+04: R=0.127 P=3.44 (n=12349)
+zeta at T~1.10e+05: R=0.099 P=4.46 (n=31095)
+zeta at T~6.24e+05: R=0.086 P=5.33 (n=91572)
+zeta at T~1.05e+06: R=0.082 P=5.59 (n=191400)
+zeta at T~2.68e+11: R=0.037 P=11.81 (n=10000)
+zeta at T~1.44e+20: R=0.023 P=21.87 (n=10000)
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/julia_import.py:53: UserWarning: PYTHON_JULIACALL_THREADS environment variable is set to something other than 'auto', so PySR was not able to set it. You may wish to set it to `'auto'` for full use of your CPU.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/juliacall/__init__.py:61: UserWarning: torch was imported before juliacall. This may cause a segfault. To avoid this, import juliacall before importing torch. For updates, see https://github.com/pytorch/pytorch/issues/78829.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+R(P) PySR elbow: 0.49832532/P  (corr log R vs log P -0.866)
+DH-type f_line(P) PySR elbow: P**(-0.14606643)
+Dirichlet L: f_line min 0.9978, max 1.0005; DH-type: f_line range 0.726 .. 0.957

@@ -1,0 +1,7 @@
+A1 net fit rel-rmse 0.007262892464874979
+A1 PySR best (N/T vs L=log T): L*(0.15661184 + 0.0044065984/log(log(L))) - 0.4792511
+A1 refined on raw data: a=0.1591519 b=-0.4516192 -> ['1/2*pi**-1', '(-1/2 + -1/2*log(2*pi))*pi**-1']
+A2 identified: 7/8
+A2 residual weighted mean 0.87486 +- 0.00059 (chi2=11.1, dof=11); PySR L*4.8148718e-6*L + 0.8744432
+A3 KAN formula (N/T vs L): 0.15831*L - 0.44232
+B PySR: 0.056022756*log(logT) + 0.04975047  linear fit in loglogT: [0.05602116 0.04975479]  theory slope 1/(2pi^2) = 0.05066059182116889

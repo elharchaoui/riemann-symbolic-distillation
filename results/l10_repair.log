@@ -1,0 +1,14 @@
+('dh', 5, 2): reused (count gap -2.0); R all slots 0.350
+('dh', 7, 2): line 1768, off-line 70 (max Re 0.854); count gap -5.4, drift -5.9 | R line 0.389 -> all slots 0.324 (boundary approx. 0.283); law 0.276
+('dh', 7, 3): line 1651, off-line 129 (max Re 1.070); count gap -4.4, drift -5.2 | R line 0.347 -> all slots 0.274 (boundary approx. 0.162); law 0.202
+('dh', 11, 2): reused (count gap -1.3); R all slots 0.267
+('dh', 11, 3): reused (count gap -1.3); R all slots 0.247
+('dh', 11, 5): line 1846, off-line 86 (max Re 0.942); count gap -3.3, drift -3.7 | R line 0.299 -> all slots 0.245 (boundary approx. 0.186); law 0.212
+('dh', 11, 7): line 1467, off-line 277 (max Re 1.835); count gap -0.3, drift -0.0 | R line 0.225 -> all slots 0.145 (boundary approx. 0.111); law 0.047
+('dh', 13, 2): reused (count gap -2.2); R all slots 0.183
+('dh', 13, 3): reused (count gap -2.2); R all slots 0.260
+('dh', 13, 4): line 1922, off-line 66 (max Re 0.808); count gap -7.2, drift -10.2 | R line 0.303 -> all slots 0.254 (boundary approx. 0.215); law 0.224
+('dh', 13, 5): reused (count gap -2.2); R all slots 0.214
+('dh', 13, 6): line 1646, off-line 206 (max Re 1.068); count gap -3.2, drift -2.6 | R line 0.170 -> all slots 0.122 (boundary approx. 0.066); law 0.114
+functions whose count closes: 7/12; R_all vs main-sum time average R_t: mean relative difference 0.084
+distance from the law: line zeros 0.766; all slots (exact) 0.358; R_all/law mean 1.358 +- 0.540

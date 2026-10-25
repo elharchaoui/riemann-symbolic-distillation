@@ -1,0 +1,20 @@
+A T~1e4: n=98999 beta=2.307+-0.007 b=1.424  PySR elbow: logs*(2.095217 + s*(-3.136065))
+A T~1e6: n=99999 beta=2.166+-0.007 b=1.356  PySR elbow: logs*(1.9792798 + s*(-3.0142906))
+A T~1e12: n=9999 beta=2.022+-0.021 b=1.284  PySR elbow: logs*(1.957268 + s*(-3.0065954))
+A T~1e21: n=9999 beta=1.981+-0.021 b=1.263  PySR elbow: logs*(1.9924757 - 3.0403926*s)
+B T~1e4: chi2/bin vs Montgomery = 4.98  PySR elbow: sin(4.1378775/(u + 1.60841570322889/u**2))
+B T~1e6: chi2/bin vs Montgomery = 1.90  PySR elbow: sin(4.124232/(u + 1.6028396/(u**2)))
+B T~1e12: chi2/bin vs Montgomery = 0.89  PySR elbow: sin(5.1238694/(u + 1.5470632))
+B T~1e21: chi2/bin vs Montgomery = 0.71  PySR elbow: sin(5.11014/(u + 1.5447589))
+B2 T~1e4: rms(F - min(a,1)) = 0.168  PySR elbow: Min(1.0088571, a)
+B2 T~1e6: rms(F - min(a,1)) = 0.184  PySR elbow: Min(0.96755564, a)
+B2 T~1e12: rms(F - min(a,1)) = 0.256  PySR elbow: Min(1.0141743, a)
+B2 T~1e21: rms(F - min(a,1)) = 0.288  PySR elbow: Min(0.9408627, a)
+C T~1e4: saturation level 0.363   (log log T/2pi)/pi^2 scale = 0.218  PySR small-L: -1*(-0.41952285) - 0.10878629/(L + 0.22573584)
+   C T~1e4: rms deviation from exact GUE Sigma^2 for L<5: 0.0415
+C T~1e6: saturation level 0.405   (log log T/2pi)/pi^2 scale = 0.252  PySR small-L: L*0.4421052/(L + 0.32323492)
+   C T~1e6: rms deviation from exact GUE Sigma^2 for L<5: 0.0297
+C T~1e12: saturation level 0.486   (log log T/2pi)/pi^2 scale = 0.324  PySR small-L: 0.10486337*log(L) + 0.34206465
+   C T~1e12: rms deviation from exact GUE Sigma^2 for L<5: 0.0159
+C T~1e21: saturation level 0.515   (log log T/2pi)/pi^2 scale = 0.385  PySR small-L: 0.108071215*log(L) + 0.344762
+   C T~1e21: rms deviation from exact GUE Sigma^2 for L<5: 0.0073

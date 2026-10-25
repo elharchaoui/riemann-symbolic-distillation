@@ -1,0 +1,14 @@
+zeta: common beta = 0.5000 (R^2 0.9576); per-zero fit R^2 0.9578; line zeros: median |beta_j - 1/2| = 0.0076; flagged 3 (off-line among first K: 0)
+    explicit formula, true zeros: R^2 = 0.9572; line zeros only: 0.9572
+chi4: common beta = 0.5002 (R^2 0.9716); per-zero fit R^2 0.9717; line zeros: median |beta_j - 1/2| = 0.0065; flagged 3 (off-line among first K: 0)
+    explicit formula, true zeros: R^2 = 0.9713; line zeros only: 0.9713
+dh: common beta = 0.7754 (R^2 0.7887); per-zero fit R^2 0.8447; line zeros: median |beta_j - 1/2| = 0.0718; flagged 14 (off-line among first K: 8)
+    off-line zero gamma=85.699: true Re = 0.8085, learned beta_j = 0.8092
+    off-line zero gamma=114.163: true Re = 0.6508, learned beta_j = 0.6433
+    off-line zero gamma=166.479: true Re = 0.5744, learned beta_j = 0.5322
+    off-line zero gamma=176.702: true Re = 0.7243, learned beta_j = 0.7215
+    off-line zero gamma=240.405: true Re = 0.8695, learned beta_j = 0.8699
+    off-line zero gamma=320.876: true Re = 0.8195, learned beta_j = 0.8085
+    off-line zero gamma=331.050: true Re = 0.7682, learned beta_j = 0.7558
+    off-line zero gamma=366.641: true Re = 0.6285, learned beta_j = 0.6504
+    explicit formula, true zeros: R^2 = 0.8409; line zeros only: 0.1019

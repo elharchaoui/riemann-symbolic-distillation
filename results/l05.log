@@ -1,0 +1,15 @@
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/julia_import.py:53: UserWarning: PYTHON_JULIACALL_THREADS environment variable is set to something other than 'auto', so PySR was not able to set it. You may wish to set it to `'auto'` for full use of your CPU.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/juliacall/__init__.py:61: UserWarning: torch was imported before juliacall. This may cause a segfault. To avoid this, import juliacall before importing torch. For updates, see https://github.com/pytorch/pytorch/issues/78829.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A chi4: velocity R^2 0.99980; PySR phi elbow: -1.8639617/(-zi + zj); slope vs 1/(zi-zj) 1.8560
+B DH zero 0.8085 + 85.699i: exact landing t* = 0.04413; law with neighbours 0.04458; pair only (sigma-1/2)^2/2 = 0.04759  [zeta convention x4: 0.1765]
+B DH zero 0.6508 + 114.163i: exact landing t* = 0.01113; law with neighbours 0.01124; pair only (sigma-1/2)^2/2 = 0.01137  [zeta convention x4: 0.0445]
+B DH zero 0.5744 + 166.479i: exact landing t* = 0.00275; law with neighbours 0.00278; pair only (sigma-1/2)^2/2 = 0.00276  [zeta convention x4: 0.0110]
+B DH zero 0.7243 + 176.702i: exact landing t* = 0.02366; law with neighbours 0.02390; pair only (sigma-1/2)^2/2 = 0.02515  [zeta convention x4: 0.0947]
+B DH zero 0.8695 + 240.405i: exact landing t* = 0.05765; law with neighbours 0.05820; pair only (sigma-1/2)^2/2 = 0.06828  [zeta convention x4: 0.2306]
+B DH: pair-law landing times for all 1646 off-line zeros: max 0.0876 (zero at [9.18601300e-01 2.44154787e+04]) -> heuristic Lambda_DH >= 0.088 (zeta convention 0.350)
+C zeta: closest pair (height 36510.2) gap 2.9538e-02, mean gap there 0.725; backward collision t = -4.548e-04
+C chi4: closest pair (height 26197.3) gap 8.8592e-03, mean gap there 0.646; backward collision t = -4.088e-05

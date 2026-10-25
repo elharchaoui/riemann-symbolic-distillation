@@ -1,0 +1,23 @@
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/julia_import.py:53: UserWarning: PYTHON_JULIACALL_THREADS environment variable is set to something other than 'auto', so PySR was not able to set it. You may wish to set it to `'auto'` for full use of your CPU.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/juliacall/__init__.py:61: UserWarning: torch was imported before juliacall. This may cause a segfault. To avoid this, import juliacall before importing torch. For updates, see https://github.com/pytorch/pytorch/issues/78829.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A zeta: n=62869 beta=2.335+-0.009; P(s<0.25)=0.0117 (GUE 0.0170); PySR elbow logs*(2.1674168 - 3.2534485*s)
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+B zeta: R2 chi2/bin vs Montgomery 4.14; form factor rms vs min(a,1) 0.155, PySR Min(1.0222036, a); C: number variance rms dev from GUE (L<5) 0.0410
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A chi4: n=73681 beta=2.448+-0.008; P(s<0.25)=0.0125 (GUE 0.0170); PySR elbow logs*(1.6511112 - s*(s + 0.86189824))
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+B chi4: R2 chi2/bin vs Montgomery 4.61; form factor rms vs min(a,1) 0.173, PySR Min(0.9928536, a); C: number variance rms dev from GUE (L<5) 0.0693
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A dh: n=31240 beta=1.813+-0.011; P(s<0.25)=0.0122 (GUE 0.0170); PySR elbow logs*(-0.6643578)*logs - s
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+B dh: R2 chi2/bin vs Montgomery 24.19; form factor rms vs min(a,1) 0.956, PySR Min(1.0609874, a); C: number variance rms dev from GUE (L<5) 0.1104
+D DH: gaps holding an off-line pair: mean 2.525 (all gaps 1.001); share of gaps > 2 that hold one: 0.964; corr(gap, Re rho) -0.257

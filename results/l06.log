@@ -1,0 +1,19 @@
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/julia_import.py:53: UserWarning: PYTHON_JULIACALL_THREADS environment variable is set to something other than 'auto', so PySR was not able to set it. You may wish to set it to `'auto'` for full use of your CPU.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/juliacall/__init__.py:61: UserWarning: torch was imported before juliacall. This may cause a segfault. To avoid this, import juliacall before importing torch. For updates, see https://github.com/pytorch/pytorch/issues/78829.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A zeta: lambda_1 zeros 0.02309571 vs exact 0.02309571; min lambda_n 0.0231 (n=1); all > 0: True
+B zeta: PySR L*0.4855729 - 1.0362419; fit 0.50044 n log n + -1.13356 n + 1.92; theory b = -1.13033; q from b = 0.994
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A chi4: lambda_1 zeros 0.07778399 vs exact 0.07778398; min lambda_n 0.0778 (n=1); all > 0: True
+B chi4: PySR -(-0.50031465)*L - 0.43834037; fit 0.50127 n log n + -0.44663 n + 0.80; theory b = -0.43718; q from b = 3.925
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+A dh: lambda_1 zeros 0.09763615 vs exact 0.09763615; min lambda_n 0.0976 (n=1); all > 0: True
+B dh: PySR (L - 0.64940137)*0.5000077; fit 0.49928 n log n + -0.32013 n + -0.13; theory b = -0.32561; q from b = 5.055
+C DH: largest growth rates log|1-1/rho| (Re rho < 1/2 member): [(np.float64(0.8085), np.float64(85.7), '4.201e-05'), (np.float64(0.6508), np.float64(114.16), '1.157e-05'), (np.float64(0.7243), np.float64(176.7), '7.182e-06'), (np.float64(0.8695), np.float64(240.4), '6.394e-06'), (np.float64(0.8195), np.float64(320.88), '3.104e-06')]
+C DH: off-line contribution for n <= 2000: max |D_n| = 0.0135 (lambda_n there ~ 6537.2)
+C DH: predicted first negative lambda_n (smooth law + exact off-line terms): n ≈ 331196

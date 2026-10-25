@@ -1,0 +1,289 @@
+<meta charset="utf-8">
+<title>Zeta Zero Distillation</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column (~70ch) with wide figure plates; the critical line runs down the left edge. */
+:root {
+  --paper: #f5f6f8; --ink: #1a2130; --muted: #5b6477; --rule: #d9dde5; --plate: #ffffff;
+  --line: #2c55c9;   /* the critical line */
+  --zero: #c8412b;   /* zeros */
+  --ok: #1f7a4d; --warn: #9a6a00; --bad: #b3261e;
+  --ok-bg: #e3f3ea; --warn-bg: #fbf0d6; --bad-bg: #f9e1df;
+  --display: "Spectral", Georgia, "Times New Roman", serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #10141b; --ink: #e2e6ee; --muted: #9aa3b5; --rule: #2a313d; --plate: #f4f5f7;
+  --line: #86a6ff; --zero: #ff8064; --ok: #6fd3a0; --warn: #f0c35a; --bad: #ff8a80;
+  --ok-bg: #173327; --warn-bg: #3a2f12; --bad-bg: #3d1c1a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #10141b; --ink: #e2e6ee; --muted: #9aa3b5; --rule: #2a313d; --plate: #f4f5f7;
+  --line: #86a6ff; --zero: #ff8064; --ok: #6fd3a0; --warn: #f0c35a; --bad: #ff8a80;
+  --ok-bg: #173327; --warn-bg: #3a2f12; --bad-bg: #3d1c1a; color-scheme: dark }
+body { background: var(--paper); color: var(--ink); font: 17px/1.6 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 80px;
+  border-left: 2px solid var(--line); }
+.col { max-width: 70ch; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
+h2 { font-size: 1.7rem; margin-top: 3.2rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+h3 { font-size: 1.2rem; margin-top: 1.6rem; }
+.eyebrow { font: 600 .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--line); }
+.lede { font-size: 1.15rem; color: var(--ink); margin-top: 1rem; }
+.status { margin-top: 1.2rem; padding: .9rem 1.1rem; border: 1px solid var(--rule); background: var(--paper);
+  border-left: 4px solid var(--zero); }
+p { margin: .8rem 0; }
+.muted { color: var(--muted); }
+code, .eq { font-family: var(--mono); font-size: .86em; }
+.tbl { overflow-x: auto; margin: 1.2rem 0; border: 1px solid var(--rule); }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: .55rem .7rem; border-bottom: 1px solid var(--rule); }
+thead th { font: 600 .74rem var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+thead.nocaps th { text-transform: none; letter-spacing: .02em; font-size: .8rem; }
+tbody th { font-weight: 600; white-space: nowrap; }
+td.eq { min-width: 14rem; }
+.chip { display: inline-block; font: 600 .72rem var(--mono); padding: .15rem .5rem; border-radius: 3px; white-space: nowrap; }
+.chip.exact { color: var(--ok); background: var(--ok-bg); }
+.chip.consistent { color: var(--ok); background: var(--ok-bg); opacity: .85; }
+.chip.partial { color: var(--warn); background: var(--warn-bg); }
+.chip.fail { color: var(--bad); background: var(--bad-bg); }
+figure { margin: 1.4rem 0; }
+figure img { display: block; width: 100%; background: var(--plate); border: 1px solid var(--rule); padding: 6px; box-sizing: border-box; }
+figcaption { font-size: .88rem; color: var(--muted); margin-top: .4rem; max-width: 70ch; }
+.map { overflow-x: auto; border: 1px solid var(--rule); margin: 1.2rem 0; }
+.map svg { display: block; min-width: 800px; width: 100%; height: auto; }
+.map .node rect { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; }
+.map .node.key rect { stroke: var(--zero); stroke-width: 2; }
+.map .node.goal rect { stroke: var(--line); stroke-width: 2.4; }
+.map text { fill: var(--ink); font: 13px var(--body); }
+.map .lbl { fill: var(--muted); font: 11px var(--mono); }
+.map path { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+.map .loop path { stroke: var(--line); stroke-dasharray: 4 3; }
+.map marker path { fill: var(--muted); stroke: none; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+.grid2 > div { min-width: 0; }
+.clue { border-top: 1px solid var(--rule); padding-top: .6rem; }
+.clue b { font-family: var(--display); font-size: 1.05rem; }
+nav.toc { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-top: 1.4rem; font: .85rem var(--mono); }
+nav.toc a { color: var(--line); text-decoration: none; }
+nav.toc a:hover, nav.toc a:focus-visible { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
+pre { font: .82rem/1.5 var(--mono); background: var(--plate); color: #1a2130; padding: .9rem; overflow-x: auto; border: 1px solid var(--rule); }
+</style>
+
+<div class="wrap">
+<header class="col">
+  <div class="eyebrow">ζ(s) · symbolic distillation · 7 angles</div>
+  <h1>Zeta Zero Distillation</h1>
+  <p class="lede">Neural networks were trained on the Riemann zeta function from seven angles. Their learned functions were turned into equations with PySR and KAN. Then the equations were connected to one another.</p>
+  <div class="status"><b>Part II</b> runs the same seven angles on L(s, χ₋₄), which has an Euler product, and on the Davenport–Heilbronn function, which has none and has zeros off the line. The comparison shows which laws need the Euler product. <a href="#part2">Jump to part II.</a></div>
+  <div class="status"><b>Result in one line.</b> The pipeline recovered the known laws on every angle, mostly with the correct constants, and the laws fit together into closed loops. It found no new law and no proof. The value of the work is a tested toolchain and a precise map of where a proof would have to act.</div>
+  <nav class="toc" aria-label="Sections">
+    <a href="#scoreboard">scoreboard</a><a href="#map">how it fits</a><a href="#a1">1 counting</a><a href="#a2">2 statistics</a>
+    <a href="#a3">3 primes→zeros</a><a href="#a4">4 zeros→primes</a><a href="#a5">5 heat flow</a><a href="#a6">6 Li</a>
+    <a href="#a7">7 synthesis</a><a href="#part2">part II: other L-functions</a><a href="#part3">part III: Gram locking</a><a href="#part4">part IV: why</a><a href="#clues">proof clues</a><a href="#repro">reproduce</a>
+  </nav>
+</header>
+
+<h2 id="scoreboard">Scoreboard</h2>
+<p class="col">Each row is one model. The network learns from data with no formula given. PySR or KAN reads the formula out of the network. A constant recognizer then tries to match the fitted numbers to closed forms.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Angle</th><th>What the network saw</th><th>What came out</th><th>Known theory</th><th>Match</th></tr></thead>
+  <tbody>{{SCORE}}</tbody>
+</table></div>
+<p class="col muted">“Exact match” means the formula and its constants were identified in closed form. “Consistent” means the numbers agree with theory within errors, but the constants are not identified uniquely at that precision.</p>
+
+<h2 id="map">How the equations fit together</h2>
+<p class="col">Every arrow is an equation that a model recovered. Dashed arrows are combinations tested in angle 7. The red node is the object everything passes through. The blue node is the open problem.</p>
+<div class="map"><svg viewBox="0 0 1000 430" role="img" aria-label="Map of recovered equations linking primes, zeros, statistics, heat flow and RH">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+  <g class="node"><rect x="20" y="190" width="120" height="44" rx="4"/><text x="80" y="217" text-anchor="middle">Primes Λ(n)</text></g>
+  <g class="node"><rect x="215" y="70" width="140" height="44" rx="4"/><text x="285" y="97" text-anchor="middle">Fluctuation S(t)</text></g>
+  <g class="node"><rect x="420" y="70" width="140" height="44" rx="4"/><text x="490" y="97" text-anchor="middle">Count N(T)</text></g>
+  <g class="node key"><rect x="400" y="190" width="180" height="44" rx="4"/><text x="490" y="217" text-anchor="middle">Zeros ρ = ½ + iγ</text></g>
+  <g class="node"><rect x="215" y="320" width="140" height="44" rx="4"/><text x="285" y="347" text-anchor="middle">Error ψ(x) − x</text></g>
+  <g class="node"><rect x="680" y="40" width="160" height="44" rx="4"/><text x="760" y="67" text-anchor="middle">GUE: β = 2</text></g>
+  <g class="node"><rect x="680" y="150" width="160" height="44" rx="4"/><text x="760" y="177" text-anchor="middle">Heat flow: 2/(zᵢ−zⱼ)</text></g>
+  <g class="node"><rect x="680" y="300" width="160" height="44" rx="4"/><text x="760" y="327" text-anchor="middle">Li coefficients λₙ</text></g>
+  <g class="node"><rect x="870" y="95" width="110" height="44" rx="4"/><text x="925" y="122" text-anchor="middle">Λ ≥ 0</text></g>
+  <g class="node goal"><rect x="870" y="245" width="110" height="44" rx="4"/><text x="925" y="272" text-anchor="middle">RH</text></g>
+
+  <path d="M110,190 L240,114" marker-end="url(#ar)"/><text class="lbl" x="120" y="140">3: −1/(πk p^k/2)</text>
+  <path d="M355,92 L420,92" marker-end="url(#ar)"/><text class="lbl" x="362" y="84">1: +θ/π+1</text>
+  <path d="M490,114 L490,190" marker-end="url(#ar)"/><text class="lbl" x="498" y="158">1: 7/8</text>
+  <path d="M400,225 L340,320" marker-end="url(#ar)"/><text class="lbl" x="372" y="290">4: explicit formula</text>
+  <path d="M215,342 L95,234" marker-end="url(#ar)"/><text class="lbl" x="70" y="300">ψ = Σ Λ(n)</text>
+  <path d="M580,200 L680,70" marker-end="url(#ar)"/><text class="lbl" x="616" y="122">2</text>
+  <path d="M580,212 L680,175" marker-end="url(#ar)"/><text class="lbl" x="624" y="186">5</text>
+  <path d="M580,225 L680,315" marker-end="url(#ar)"/><text class="lbl" x="622" y="280">6</text>
+  <path d="M840,320 L885,289" marker-end="url(#ar)"/><text class="lbl" x="850" y="335">λₙ ≥ 0 ⇔ RH</text>
+  <path d="M925,139 L925,245" marker-end="url(#ar)"/><text class="lbl" x="932" y="200">Λ = 0</text><text class="lbl" x="932" y="214">⇔ RH</text>
+  <g class="loop">
+    <path d="M840,62 L895,95" marker-end="url(#ar)"/><path d="M840,172 L880,139" marker-end="url(#ar)"/>
+    <text class="lbl" x="850" y="58">loop 3</text>
+    <path d="M140,205 C 260,260 330,250 400,215" marker-end="url(#ar)"/><text class="lbl" x="150" y="262">loop 1: zeros from primes</text>
+  </g>
+</svg></div>
+
+<div class="grid2">
+  <div class="clue"><b>Loop 1 · primes → zeros.</b> Laws 1 and 3 together predict zero positions from primes alone.</div>
+  <div class="clue"><b>Loop 2 · back to primes.</b> Law 4 applied to those predicted zeros rebuilds the prime-counting error.</div>
+  <div class="clue"><b>Loop 3 · Λ ≥ 0.</b> GUE says arbitrarily close pairs exist. Law 5 says a close pair collides at t ≈ −gap²/2. So collisions approach t = 0 from below.</div>
+</div>
+
+<h2 id="a1">1 · Counting zeros</h2>
+<div class="col">
+<p>An MLP learned N(T)/T as a function of log T from raw counts. PySR's simplest good formula was linear in log T. Refitting that form on raw counts gave constants that the recognizer matched to 1/2π and −(1 + log 2π)/2π. A binned residual gave the constant term 7/8. KAN, run on the same network, read <code>{{KAN}}</code>.</p>
+<p>The spread of S(t) grows from 0.33 at T ≈ 10³ to 0.51 at 10²¹. PySR chose a log log T law by itself. Its slope is 10% above Selberg's 1/(2π²), which is expected from slow corrections at these heights.</p>
+</div>
+<figure><img src="{{IMG1}}" alt="Counting function fit, constant term 7/8, and growth of Var S(t) with log log T"><figcaption>Left: network fit of N(T)/T. Middle: binned residual against 7/8. Right: Var S(t) against log log T across 19 orders of magnitude of height.</figcaption></figure>
+
+<h2 id="a2">2 · Local statistics</h2>
+<div class="col">
+<p>A density network learned the spacing distribution at heights 10⁴, 10⁶, 10¹² and 10²¹. PySR wrote its log-density with a log s coefficient close to 2. A direct fit gives the repulsion exponent β, which converges to 2 as height grows. β = 2 is the unitary (GUE) class. Montgomery's pair correlation matches better with height. In Fourier space the law is the simple form factor min(|α|, 1). The number variance follows GUE at short range and saturates at long range, where the primes take over (Berry).</p>
+</div>
+<figure><img src="{{IMG2}}" alt="Spacing densities, pair correlation and form factor, number variance at four heights"><figcaption>Left: learned spacing densities against the GUE surmise and Poisson. Middle: pair correlation R₂(u) and, offset by 1.5, the form factor F(α). Right: number variance Σ²(L) against exact GUE.</figcaption></figure>
+
+<h2 id="a3">3 · The zeros know the primes</h2>
+<div class="col">
+<p>A one-layer network predicted S(t) from sin(t log n) and cos(t log n) for every integer n ≤ 150. Nothing in the input marks primes. With an L1 penalty the network kept exactly the prime powers. All cos weights went to zero. PySR wrote the weights as −c/(k√n), with c·√p averaging {{C_PRIME}}, recognized as −1/π. These 48 terms explain {{R2_S}} of the variance of S(t).</p>
+</div>
+<figure><img src="{{IMG3}}" alt="Learned weights by integer n, nonzero only at prime powers"><figcaption>Left: learned sin weights (stems) against −Λ(n)/(π√n log n) (crosses). Right: the weight law on primes and prime squares.</figcaption></figure>
+
+<h2 id="a4">4 · The primes know the zeros</h2>
+<div class="col">
+<p>The model wrote (ψ(x) − x)/√x as a sum over the first 300 zeros, with one free weight pair (A_j, B_j) per zero. All terms shared one free amplitude exponent β, the real part of the zeros as the primes see it. A profile scan puts β at {{BETA_PROF}}. Gradient descent from 0.85 reached {{BETA_E4A}}, and from 0.15 it reached {{BETA_E4B}}. PySR read the sin weights as A(γ) = <code>{{A_LAW}}</code>. The smooth term's weight is {{C4}}, close to −log 2π = −1.8379. The fit reaches R² = {{R2_4}}, equal to the explicit formula itself ({{R2_TRUNC}}).</p>
+<p class="muted">Two limits. The cos weights B_j ≈ −1/γ² are too small to recover from this data. A first version with a free-form MLP per-zero message got stuck at β = 0.76 and 0.24 with R² = 0.59. The linear per-zero layer is the inductive bias that worked.</p>
+</div>
+<figure><img src="{{IMG4}}" alt="Profile of R squared against beta, beta trajectories, per-zero weights"><figcaption>Left: best R² for each fixed β. Middle: β during training from two starts. Right: learned per-zero weights against the explicit formula.</figcaption></figure>
+
+<h2 id="a5">5 · Heat flow and how zeros interact</h2>
+<div class="col">
+<p>The de Bruijn–Newman family H_t deforms ξ. Its zeros were computed to 30 digits for t ∈ [−0.3, 1], with their exact velocities. A pairwise network with an antisymmetric message fit the velocities with R² = {{VEL_R2}}. PySR read the message as 2/(zᵢ − zⱼ). The distilled law predicts when zeros 34 and 35 (γ = 111.03, 111.87) collide and leave the real line. The direct computation agrees to 0.4%. The closest pairs in the 10¹² and 10²¹ windows would collide at t ≈ {{COLL12}} and {{COLL21}}.</p>
+</div>
+<figure><img src="{{IMG5}}" alt="Zero trajectories of H_t, learned pair interaction against 2/(zi-zj), velocity fit"><figcaption>Left: zero trajectories. Middle: distilled pair interaction against 2/(zᵢ − zⱼ). Right: predicted against exact velocities.</figcaption></figure>
+
+<h2 id="a6">6 · Li's criterion</h2>
+<div class="col">
+<p>RH holds exactly when every λₙ = Σ_ρ [1 − (1 − 1/ρ)ⁿ] is non-negative. From 2 million zeros, λ₁ = {{LAM1}}, matching the literature. All λₙ up to n = 20 000 are positive, and they follow ½ n log n + (γ − 1 − log 2π)/2 · n. As a counterfactual, zero #1 was replaced by an off-line pair ½ ± δ + iγ₁. The anomaly then grows at exactly the rate log|1 − 1/ρ|.</p>
+</div>
+<div class="tbl"><table><thead><tr><th>δ (offset from ½)</th><th>fitted growth rate</th><th>theory log|1−1/ρ|</th><th>first negative λₙ</th></tr></thead><tbody>{{CF_ROWS}}</tbody></table></div>
+<figure><img src="{{IMG6}}" alt="Li coefficients, residual after asymptotic law, counterfactual with off-line zero"><figcaption>Left: λₙ/n against the RH asymptotic. Middle: residual. Right: one zero moved off the line drives λₙ negative.</figcaption></figure>
+
+<h2 id="a7">7 · Synthesis loops</h2>
+<div class="grid2">
+<div><h3>Loop 1 · zeros from primes</h3>
+<div class="tbl"><table><thead><tr><th>primes up to</th><th>median error (low)</th><th>median error (#10⁶)</th><th>correct index (#10⁶)</th></tr></thead><tbody>{{LOOP1}}</tbody></table></div>
+<p class="muted">Errors are in mean spacings. “Low” is zeros 1–2000; “#10⁶” is zeros 1 000 001–1 002 000.</p></div>
+<div><h3>Loop 2 · back to primes</h3>
+<div class="tbl"><table><thead><tr><th>zeros used</th><th>R² of ψ(x) − x</th></tr></thead><tbody>{{LOOP2}}</tbody></table></div>
+<h3>Loop 3 · collision times</h3>
+<div class="tbl"><table><thead><tr><th>height</th><th>expected min gap</th><th>collision t</th></tr></thead><tbody>{{LOOP3}}</tbody></table></div></div>
+</div>
+<figure><img src="{{IMG7}}" alt="Zero prediction error versus number of primes, rebuilt prime error, collision times versus height"><figcaption>Loop 3 uses the closest pair in a 1% window around height T. At 10¹² it gives −2·10⁻⁹, the same order as the rigorous Csordas–Smith–Varga bound −2.7·10⁻⁹.</figcaption></figure>
+
+<h2 id="part2">Part II · Same pipeline, two more functions</h2>
+<div class="col">
+<p>The seven angles were run again on three functions at matched heights. The zeros were computed with Arb (python-flint). Completeness was checked with a Turing-style count: in every height block the zeros found match θ(T)/π, with mean S below 0.02.</p>
+<ul>
+<li><b>ζ(s)</b>: the {{N_ZETA}} zeros below height 50 000 (Odlyzko).</li>
+<li><b>L(s, χ₋₄)</b> = 1 − 3⁻ˢ + 5⁻ˢ − …: Euler product and functional equation. {{N_CHI4}} zeros below 50 000, all on the line.</li>
+<li><b>Davenport–Heilbronn (DH)</b> f(s) = Σ aₙ n⁻ˢ, with aₙ = (1, κ, −κ, −1, 0) repeating mod 5. It has the same type of functional equation but no Euler product. Below 25 000 it has {{N_DH_LINE}} zeros on the line and {{N_DH_OFF}} zeros with Re ρ &gt; ½ (each with a mirror partner 1 − ρ̄), up to Re ρ = {{DH_SIGMA_MAX}}.</li>
+</ul>
+</div>
+<h3>Which laws need the Euler product</h3>
+<div class="tbl"><table>
+  <thead class="nocaps"><tr><th>Law (as distilled)</th><th>ζ(s)</th><th>L(s, χ₋₄)</th><th>Davenport–Heilbronn</th><th>Needs Euler product?</th></tr></thead>
+  <tbody>{{LMATRIX}}</tbody>
+</table></div>
+<p class="col muted">“holds” and “breaks” describe the data, not a proof. The heat-flow times are in ζ's convention (z = 2γ).</p>
+
+<h3>1 · Counting: the network reads the conductor</h3>
+<p class="col">The network and PySR gave N(T)/T = a·log T + b for each function. The slope is 1/2π every time. The intercept carries the conductor: q = 2π·e^(2πb + 1) gives {{Q_ZETA}}, {{Q_CHI4}} and {{Q_DH}}. The constant term is 7/8 for ζ and 1/8 for both L-functions. For ζ, 7/8 = 1 − 1/8: the 1 comes from the pole at s = 1 and the −1/8 from its even gamma factor. The odd L-functions have no pole and get +1/8. DH obeys the counting law exactly, so this law needs only the functional equation. On the line, DH keeps {{DH_FRAC}} of its zeros. Its off-line count grows linearly, about {{DH_SLOPE}} per unit of height.</p>
+<figure><img src="{{LIMG1}}" alt="Constant term of the counting function for three functions, DH on-line fraction, size of S(t)"><figcaption>Left: N(T) minus the main term, with lines at 7/8 and 1/8. Middle: DH share of zeros on the critical line; inset: real parts of the off-line zeros. Right: Var S(t) at matched heights.</figcaption></figure>
+
+<h3>2 · Local statistics: DH line zeros form a lattice with vacancies</h3>
+<p class="col">ζ and χ₋₄ have the same GUE statistics, and PySR read both form factors as min(α, 1). DH is different. Its pair correlation oscillates with period ≈ 0.9. Its form factor has a sharp Bragg peak at α ≈ 1.1. Its number variance grows linearly, not logarithmically. The peak sits at 1/0.907, the density of <i>all</i> zeros. The line zeros lock to slots where θ(γ)/π ≡ ½. The lattice order parameter |⟨e^{2πiθ(γ)/π}⟩| is {{GRAM_ZETA}} for ζ, {{GRAM_CHI4}} for χ₋₄ and {{GRAM_DH}} for DH. The off-line pairs are the vacancies: {{DH_BIGGAP}} of all gaps longer than two spacings hold one, and {{DH_OFFBND}} of off-line pairs sit at a slot boundary.</p>
+<figure><img src="{{LIMG2}}" alt="Spacing density, pair correlation, form factor with Bragg peak for DH, number variance"><figcaption>DH (green) has a second bump near spacing 2.5 (a vacated slot), oscillating pair correlation and a Bragg peak in the form factor.</figcaption></figure>
+
+<h3>3 · S(t) listens to the prime powers, or not</h3>
+<p class="col">The same L1 network chose which n ≤ 150 matter for S(t). For ζ it kept exactly the {{S_ZETA}} prime powers. For χ₋₄ it kept exactly the {{S_CHI4}} odd prime powers, with signs −χ(p). For DH it kept {{S_DH_NPP}} integers that are not prime powers (6, 12, 14, 18, 21, …). Their weights match the coefficients of log f (correlation {{S_DH_CORR}}). This is the absence of an Euler product, read from the zeros alone.</p>
+<figure><img src="{{LIMG3}}" alt="Learned weights for zeta, chi4 and DH; circles mark selected composites"><figcaption>Red circles: selected n that are not prime powers. There are none for ζ and χ₋₄.</figcaption></figure>
+
+<h3>4 · The coefficients measure how far off the line each zero is</h3>
+<p class="col">The network got the zero heights and ψ_F(x), the sum of cₙ over n ≤ x, where cₙ are the coefficients of −F′/F. With one shared exponent, β = {{B_ZETA}} for ζ and {{B_CHI4}} for χ₋₄. For DH the best shared exponent is {{B_DH}}, so β = ½ is rejected. With one free exponent per zero, the network measured the real part of every off-line DH zero below height 370:</p>
+<div class="tbl"><table><thead class="nocaps"><tr><th>γ</th><th>true Re ρ</th><th>learned β_j</th></tr></thead><tbody>{{OFF_ROWS}}</tbody></table></div>
+<p class="col">The explicit formula with line zeros alone explains R² = {{EF_LINE}} of ψ_DH. With the off-line zeros it explains {{EF_ALL}}. Limit: the network measures a real part once it knows a zero's height. It does not detect off-line zeros blindly. Above γ ≈ 150, the line zeros' β_j scatter as widely as the off-line offsets, because higher off-line zeros that the model lacks pollute the fit.</p>
+<figure><img src="{{LIMG4}}" alt="R squared against common beta; learned per-zero beta against true real parts"><figcaption>Middle: crosses are the true real parts of DH's off-line zeros, circles are the learned exponents.</figcaption></figure>
+
+<h3>5 · Heat flow: same law, different threshold</h3>
+<p class="col">The pair law comes from the heat equation, not from arithmetic. PySR read the χ₋₄ interaction as <code>{{PHI_CHI4}}</code>, close to 2/(zᵢ − zⱼ) but 7% low (t ∈ [0, 1] only). For DH, each off-line zero was followed in t until it reached the real axis. The distilled law with neighbours predicts the exact landing time within 1%:</p>
+<div class="tbl"><table><thead class="nocaps"><tr><th>DH zero</th><th>exact landing t*</th><th>law with neighbours</th><th>pair only (σ−½)²/2</th></tr></thead><tbody>{{LAND_ROWS}}</tbody></table></div>
+<p class="col">These times use z = γ. In ζ's convention (×4) they put Λ_DH ≥ {{LAND_MAX}}, and the pair law over all off-line zeros suggests Λ_DH ≳ {{LAND_HEUR}}. For ζ and χ₋₄ the closest pairs collide only at negative t ({{COLL_ZETA}} and {{COLL_CHI4}}). This is the Λ = 0 against Λ &gt; 0 contrast, seen directly.</p>
+<figure><img src="{{LIMG5}}" alt="chi4 zero trajectories, chi4 pair law, DH off-line zeros moving to the real axis"><figcaption>Right: distance of each DH off-line zero from the real axis as t increases.</figcaption></figure>
+
+<h3>6 · Li's criterion cannot see DH's off-line zeros at small n</h3>
+<p class="col">For all three functions, λ₁ from the zeros matches the exact value to 8 digits ({{LAM1_DH}} for DH). The asymptotic law ½ n log n + b·n holds with b = (γ − 1 − log 2π + log q)/2: fitted {{LI_B}}. All λₙ are positive for n ≤ 2000, <b>for DH too</b>, despite {{N_DH_OFF}} off-line zeros. Their total contribution is at most {{LI_DMAX}}. The zero at 0.8085 + 85.70i makes λₙ negative only near n ≈ {{LI_NEG}}.</p>
+<figure><img src="{{LIMG6}}" alt="Li coefficients minus half log n for three functions, DH off-line part, predicted failure point"><figcaption>Right: the exact off-line part (red) overtakes the smooth law only near n ≈ 3·10⁵.</figcaption></figure>
+
+<h3>7 · Synthesis: predicting zeros from the coefficients</h3>
+<p class="col">Zeros were predicted from N_smooth plus a tapered coefficient sum, as in part I. The median error falls from {{L1_ZETA}} for ζ, {{L1_CHI4}} for χ₋₄ and {{L1_DH}} for DH. This loop works without an Euler product. DH starts lower because of its Gram locking.</p>
+<figure><img src="{{LIMG7}}" alt="Zero prediction error against number of coefficients; Gram-locking histograms"><figcaption>Right: where zeros sit inside their slot θ/π mod 1. DH line zeros crowd the centre and its off-line pairs crowd the edges.</figcaption></figure>
+
+<h2 id="part3">Part III · One locking law, and what the Euler product forbids</h2>
+<div class="col">
+<p>Part II found that DH's line zeros sit on a lattice of slots, θ(γ) ≡ π/2 mod π, and that its off-line pairs fill vacated slots. Part III asks why, and whether the same thing happens elsewhere.</p>
+<p><b>Literature.</b> The mechanism is known in qualitative form. Jerby (<a href="https://arxiv.org/abs/2310.14415">arXiv:2310.14415</a>) deforms the "core" of Z (its first term, ≈ cos θ, whose zeros are exactly the slots) into Z. He shows that DH's first off-line pair, near Gram point g₄₄, comes from a collision of two core zeros. Gram's law for ζ is the same slot structure (Brent, van de Lune et al.; Trudgian). The search found no statistical study of the lattice order across L-functions.</p>
+<p><b>Prediction.</b> Z(t) = 2 cos θ + 2 Σ_{2≤n≤N} aₙ n^{−1/2} cos(θ − t log n) + …, with N = √(qT/2π). The terms with n ≥ 2 push zeros off their slots. Their mean-square size is P = Σ_{2≤n≤N} |aₙ|²/n. So smaller P should mean stronger locking.</p>
+<p><b>Test.</b> {{N_FAM}} functions were tested in the window t ∈ [2000, 3500]: every primitive Dirichlet L-function with q ≤ 13 (one per conjugate pair), and the real functional-equation combination of each complex pair (DH type, {{N_FAMDH}} functions). ζ was added at heights 2·10³ to 10²⁰ from Odlyzko's tables. The lattice order is R = |⟨e^{2iθ(γ)}⟩|.</p>
+</div>
+<div class="tbl"><table><thead class="nocaps"><tr><th>Result</th><th>Number</th></tr></thead><tbody>{{L8_ROWS}}</tbody></table></div>
+<figure style="max-width:760px"><img src="{{LIMG8B}}" alt="Lattice order against P on log axes: Dirichlet L and zeta on one curve, DH types above it, moving toward it when vacancies are counted"><figcaption>Open circles and triangles: functions with an Euler product, including ζ up to height 10²⁰. Open squares: DH-type line zeros. Filled squares: DH types with every slot counted.</figcaption></figure>
+<figure><img src="{{LIMG8}}" alt="Lattice order and share of zeros on the line against P for all functions"><figcaption>Right: Dirichlet L-functions keep every zero on the line at every P. DH types lose 4–27%, and more at larger P.</figcaption></figure>
+<div class="col">
+<p><b>Reading.</b> One law covers every function with an Euler product, at all heights tested: R ≈ 1/(1 + {{C_LAW}}·P). The locking itself does not need the Euler product. The Dirichlet L-function mod 12 locks as strongly as DH (R = {{R_Q12}}) because its P is small. What the Euler product controls is vacancies. With it, no slot is emptied at any P (share on the line {{FL_DIR}}). Without it, slots empty at a rate that grows with P ({{FL_DH}}). DH-type line zeros sit above the curve because the worst-placed zeros are the ones that left. Counting every slot brings them most of the way back: the mean distance from the curve falls from {{DEV_LINE}} to {{DEV_ALL}}. With DH's actual off-line zeros, R moves from {{R_DH_LINE}} to {{R_DH_ALL}}, against {{R_DH_CURVE}} on the curve. So selection explains most of the excess, not all of it.</p>
+<p><b>Limits.</b> P is a heuristic predictor. The constant {{C_LAW}} is fitted, not derived. For most DH types, the boundary placement of their pairs is an approximation. The window covers about 2000 zeros per function.</p>
+</div>
+
+<h2 id="part4">Part IV · The locking law derived, and where vacancies come from</h2>
+<div class="col">
+<p><b>Derivation.</b> Keep only the main sum of the approximate functional equation: Z(t) ≈ 2 Re(e^{iθ} F(t)), where F = Σ_{n≤N} aₙ n^{−1/2−it} = 1 + W. Then Z = 2|F| cos(θ + arg F), so the zeros sit at θ ≡ π/2 − arg F and R = |⟨e^{−2i·arg F}⟩|. Now model W as a circular complex Gaussian with E|W|² = P: the phases n^{−it} act like independent random phases. A Rician integral then gives</p>
+<p style="text-align:center;font-family:var(--mono);font-size:1.1rem">R(P) = 1 − P·(1 − e^{−1/P})</p>
+<p>with no fitted constant. For small P it gives R ≈ 1 − P, and for large P, R ≈ 1/(2P). On all {{L9_N}} Euler-product points (Dirichlet L-functions, and ζ up to height 10²⁰), the rms relative error is {{L9_RMS}}, within sampling noise (χ²/dof = {{L9_CHI2}}). The constant-fitted form 1/(1 + 1.84·P) of part III did slightly worse ({{L9_FITRMS}}). Its 1.84 was an approximation to this curve.</p>
+</div>
+<figure><img src="{{LIMG9}}" alt="Locking law against data; model against main-sum and true zeros; zero share kept by the main sum against the true share"><figcaption>Left: the derived law with Euler-product data and error bars. Middle: law against R measured at the main-sum zeros and at the true zeros. Right: share of zeros kept by the main sum 2 Re(e^{iθ}F) against the true share on the line.</figcaption></figure>
+<div class="col">
+<p><b>The main sum already contains DH's vacancies.</b> For the 12 DH types, the share of zeros the main sum keeps matches the true share on the line with correlation {{L9_CORR}}, from 73% to 96%. For DH itself, {{L9_DHGAP}} of its {{L9_DHOFF}} off-line zeros in the window sit inside a gap of the main-sum zeros wider than 1.5 spacings. For Euler products the main sum loses only {{L9_ZMISS}} zeros out of about 1450 for ζ. All of them are members of close pairs (median gap {{L9_ZGAP}} spacings, against {{L9_ZALL}} typical), and the full function keeps them as real zeros. DH's main sum shows the same kind of close-pair misses ({{L9_DMISS}}) plus its true vacancies.</p>
+<p><b>Exact off-line zeros of every DH type.</b> Off-line zeros were found for all 12 DH types in the window ({{L10_CLOSED}} of 12 counts close within 3 zeros). Counting every slot removes the selection effect. For 9 of the 12 functions, what remains matches the time average of the main-sum phase, R_t, to within 1–5%. For the three with the most off-line zeros, (11, 7), (13, 5) and (13, 6), R with all slots counted is 13–29% above R_t, which the main-sum picture does not explain. Between R_t and the law lies the non-Gaussian shape of W for these coefficients: its normalised fourth moment is 1.3–1.7, against 1 for a Gaussian.</p>
+</div>
+<div class="tbl"><table><thead class="nocaps"><tr><th>DH type (q, index)</th><th>P</th><th>off-line zeros</th><th>count gap</th><th>R line zeros</th><th>R all slots</th><th>R_t (main sum)</th><th>law R(P)</th></tr></thead><tbody>{{L10_ROWS}}</tbody></table></div>
+<div class="col">
+<p><b>Reading.</b> The lattice order of every function tested is set by its Dirichlet polynomial, and for Euler products by one number, P. The vacancies of DH-type functions are visible in the same polynomial, as deep gaps in its zeros. For Euler products the polynomial produces no deep gaps, only close-pair near-misses, and the exact function repairs those. So, at the heights tested, the property "no vacancies" is already mostly present in the main sum when the coefficients are multiplicative. The last step, repairing near-misses, needs the full function. A proof would have to explain both parts: why multiplicative coefficients make no deep gaps, and why the full function repairs the shallow ones.</p>
+<p><b>Limits.</b> The Gaussian model is a heuristic and is not derived from the Euler product. The window covers about 2000 zeros per function, at t ≈ 2000–3500 only. The count gaps of 1–7 zeros mean a few off-line zeros or close pairs are still missing for some DH types. The main-sum analysis uses a sharp cutoff at N, which jumps 6–13 times per window.</p>
+</div>
+
+<h2 id="clues">Clues for a proof, and their limits</h2>
+<div class="col">
+<div class="clue"><p><b>The Euler product is the load-bearing wall.</b> Part II tests this directly. DH has the same functional equation as χ₋₄ but no Euler product. It keeps the counting law, the heat-flow law, the Li asymptotics and the zero-prediction loop. It loses the line (9% of zeros leave it), GUE statistics, prime-power support and β = ½, and it gets Λ &gt; 0. A proof must use what DH lacks: the Euler product, not only the symmetry s ↔ 1 − s.</p></div>
+<div class="clue"><p><b>Off-line zeros are vacancies, and only the Euler product forbids them.</b> In DH, an off-line pair fills the slots of two missing line zeros. Part III shows that the locking itself follows one law, R ≈ 1/(1 + 1.8·P), for every Euler product at every height tested. So the slots weaken as P grows (for ζ, P grows like ½ log T), yet no slot is ever emptied. Without an Euler product, slots empty at all P. A proof along these lines must show that the Euler product keeps every slot occupied even when the locking is weak. That is a restatement of RH, not progress. But it isolates the property to explain: "occupied" can hold without "locked". Part IV derives the locking law, with no free constant, from a random-phase model of the main sum. It finds DH's vacancies already as deep gaps in that main sum. With multiplicative coefficients the main sum shows only shallow, close-pair near-misses, which the full function repairs.</p></div>
+<div class="clue"><p><b>RH is a statement about a threshold, Λ = 0.</b> Angle 5 gives the dynamics: zeros repel like charges with force 2/(zᵢ − zⱼ) as t grows. Angle 2 gives arbitrarily small gaps. Together they push collision times toward 0 from below at every height. This is the logic of the Rodgers–Tao proof of Λ ≥ 0. RH needs the opposite inequality. That means showing no pair ever meets for t ≥ 0, which needs control of the closest pairs at all heights.</p></div>
+<div class="clue"><p><b>Finite checks only reach finite height.</b> DH makes this concrete: it has an off-line zero at height 86, yet λₙ &gt; 0 for every n ≤ 2000, and the first negative λₙ is predicted near n ≈ 3·10⁵. Angle 6 shows an off-line zero at height γ with offset δ changes λₙ only after n ≈ γ²/δ. So positivity up to n = N tests zeros only up to height about √N. Every numerical angle here has the same limit. Data can confirm and constrain RH, but cannot prove it.</p></div>
+<div class="clue"><p><b>What is new here.</b> No law in this report is new. All are classical results or established conjectures. What is new is evidence that networks with the right inductive bias (sum over primes, sum over zeros, pairwise messages) rediscover them without being told the form. The same pipeline can now be pointed at questions with no known answer, for example the residual of λₙ, Lehmer-pair statistics against the heat-flow law, or other L-functions.</p></div>
+</div>
+
+<h2 id="repro">Reproduce</h2>
+<div class="col">
+<p>Data: Odlyzko's tables (first 2 001 052 zeros; 10⁴ zeros near #10¹² and #10²¹). Tools: PyTorch, PySR, pykan, mpmath. Each experiment writes <code>results/eXX.json</code> and a figure.</p>
+<pre>uv run python experiments/e01_counting.py        # … through e07_synthesis.py
+uv run python experiments/l00_zeros.py           # part II: zeros of L(s, χ₋₄) and DH (~1.5 h on 20 cores)
+uv run python experiments/l01_counting.py        # … through l07_synthesis.py
+uv run python experiments/l08_gram_locking.py    # part III: ~30 functions (~15 min), then l08b_locking_law.py
+uv run python experiments/l09_locking_theory.py  # part IV: law, main-sum checks (~5 min)
+uv run python experiments/l10_dh_family_offline.py  # part IV: exact off-line zeros of 12 DH types (~40 min)
+uv run python build_report.py                    # rebuilds this page from results/</pre>
+</div>
+</div>

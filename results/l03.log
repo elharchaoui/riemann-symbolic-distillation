@@ -1,0 +1,11 @@
+zeta: selected 48 n; expected support 48 -> hit 48, missed 0, extra 0; selected non-prime-powers: [] (0); corr with theory 0.9999; sign agreement 1.000; R^2 0.580
+chi4: selected 41 n; expected support 41 -> hit 41, missed 0, extra 0; selected non-prime-powers: [] (0); corr with theory 0.9999; sign agreement 1.000; R^2 0.470
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/julia_import.py:53: UserWarning: PYTHON_JULIACALL_THREADS environment variable is set to something other than 'auto', so PySR was not able to set it. You may wish to set it to `'auto'` for full use of your CPU.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/juliacall/__init__.py:61: UserWarning: torch was imported before juliacall. This may cause a segfault. To avoid this, import juliacall before importing torch. For updates, see https://github.com/pytorch/pytorch/issues/78829.
+  warnings.warn(
+/home/med/Documents/projects/mathematics/riemann/.venv/lib/python3.12/site-packages/pysr/sr.py:2413: UserWarning: Note: Setting `random_state` without also setting `deterministic=True` and `parallelism='serial'` will result in non-deterministic searches.
+  warnings.warn(
+   chi4 |a_n| PySR: 0.31950504/(k*sqrt(n)); mean |a_p| sqrt p = 0.32098 -> 1*pi**-1; sign(a_p) = -chi(p) for 1.000 of primes
+dh: selected 79 n; expected support 94 -> hit 79, missed 15, extra 0; selected non-prime-powers: [6, 12, 14, 18, 21, 26, 28, 34, 36, 39, 42, 46, 51, 52, 63, 68, 69, 72, 74, 78]... (38); corr with theory 0.9930; sign agreement 1.000; R^2 0.424
+   DH composites with large formal weight: [6, 12, 14, 18, 21, 24, 26, 28, 34, 36, 39, 42, 46, 51, 52, 63, 68, 69, 72, 74, 78, 84, 86, 91, 92, 94, 98, 102, 106, 108, 111, 117, 119, 126, 129, 134, 138, 141, 146, 147, 148]; selected 0.926829268292683

@@ -1,0 +1,38 @@
+A: R = 1 - P(1 - e^(-1/P)) on 29 Euler-product points: rms relative error 0.052; chi^2/dof = 0.35  (fitted 1/(1+cP), c=1.836: 0.062)
+('dir', 1, 1): P=2.61 E|W|^2=2.61 kurt=1.69 | R true 0.160, core 0.149, <e^-2i argF>_t 0.164, model 0.169 | on-line share: true 1.000, core 0.989
+('dir', 3, 2): P=2.14 E|W|^2=2.15 kurt=1.59 | R true 0.213, core 0.214, <e^-2i argF>_t 0.204, model 0.201 | on-line share: true 0.999, core 0.995
+('dir', 4, 3): P=1.50 E|W|^2=1.50 kurt=1.23 | R true 0.264, core 0.265, <e^-2i argF>_t 0.269, model 0.270 | on-line share: true 1.000, core 0.995
+('dir', 5, 2): P=2.86 E|W|^2=2.86 kurt=2.09 | R true 0.162, core 0.160, <e^-2i argF>_t 0.160, model 0.156 | on-line share: true 1.001, core 0.990
+('dh', 5, 2): P=1.28 E|W|^2=1.28 kurt=1.27 | R true 0.413, core 0.416, <e^-2i argF>_t 0.356, model 0.306 | on-line share: true 0.917, core 0.914
+('dir', 5, 4): P=2.86 E|W|^2=2.86 kurt=2.13 | R true 0.172, core 0.172, <e^-2i argF>_t 0.168, model 0.156 | on-line share: true 0.999, core 0.987
+('dir', 7, 2): P=3.21 E|W|^2=3.24 kurt=2.34 | R true 0.144, core 0.138, <e^-2i argF>_t 0.145, model 0.141 | on-line share: true 1.000, core 0.989
+('dh', 7, 2): P=1.45 E|W|^2=1.45 kurt=1.39 | R true 0.389, core 0.383, <e^-2i argF>_t 0.321, model 0.278 | on-line share: true 0.924, core 0.926
+('dir', 7, 3): P=3.21 E|W|^2=3.20 kurt=2.36 | R true 0.149, core 0.143, <e^-2i argF>_t 0.147, model 0.141 | on-line share: true 1.000, core 0.989
+('dh', 7, 3): P=2.12 E|W|^2=2.12 kurt=1.47 | R true 0.347, core 0.335, <e^-2i argF>_t 0.267, model 0.203 | on-line share: true 0.863, core 0.863
+('dir', 7, 6): P=3.21 E|W|^2=3.21 kurt=2.34 | R true 0.149, core 0.143, <e^-2i argF>_t 0.161, model 0.141 | on-line share: true 0.999, core 0.995
+('dir', 8, 3): P=1.67 E|W|^2=1.67 kurt=1.35 | R true 0.249, core 0.252, <e^-2i argF>_t 0.248, model 0.247 | on-line share: true 1.000, core 0.984
+('dir', 8, 5): P=1.67 E|W|^2=1.68 kurt=1.34 | R true 0.245, core 0.245, <e^-2i argF>_t 0.244, model 0.247 | on-line share: true 0.998, core 0.995
+('dir', 11, 2): P=3.59 E|W|^2=3.60 kurt=2.56 | R true 0.130, core 0.128, <e^-2i argF>_t 0.128, model 0.127 | on-line share: true 0.998, core 0.989
+('dh', 11, 2): P=1.73 E|W|^2=1.74 kurt=1.49 | R true 0.297, core 0.295, <e^-2i argF>_t 0.255, model 0.241 | on-line share: true 0.957, core 0.956
+('dir', 11, 3): P=3.59 E|W|^2=3.59 kurt=2.63 | R true 0.126, core 0.119, <e^-2i argF>_t 0.132, model 0.127 | on-line share: true 0.999, core 0.987
+('dh', 11, 3): P=1.89 E|W|^2=1.88 kurt=1.48 | R true 0.296, core 0.293, <e^-2i argF>_t 0.240, model 0.224 | on-line share: true 0.923, core 0.921
+('dir', 11, 5): P=3.59 E|W|^2=3.57 kurt=2.62 | R true 0.130, core 0.124, <e^-2i argF>_t 0.130, model 0.127 | on-line share: true 1.000, core 0.992
+('dh', 11, 5): P=2.01 E|W|^2=2.00 kurt=1.58 | R true 0.299, core 0.289, <e^-2i argF>_t 0.241, model 0.212 | on-line share: true 0.913, core 0.914
+('dir', 11, 7): P=3.59 E|W|^2=3.61 kurt=2.57 | R true 0.127, core 0.126, <e^-2i argF>_t 0.130, model 0.127 | on-line share: true 1.000, core 0.989
+('dh', 11, 7): P=10.36 E|W|^2=10.36 kurt=1.59 | R true 0.225, core 0.221, <e^-2i argF>_t 0.113, model 0.047 | on-line share: true 0.726, core 0.731
+('dir', 11, 10): P=3.59 E|W|^2=3.60 kurt=2.64 | R true 0.140, core 0.140, <e^-2i argF>_t 0.143, model 0.127 | on-line share: true 1.000, core 0.987
+('dir', 12, 11): P=1.03 E|W|^2=1.03 kurt=1.05 | R true 0.351, core 0.343, <e^-2i argF>_t 0.344, model 0.359 | on-line share: true 0.998, core 0.997
+('dir', 13, 2): P=3.72 E|W|^2=3.72 kurt=2.65 | R true 0.116, core 0.124, <e^-2i argF>_t 0.130, model 0.123 | on-line share: true 0.999, core 0.983
+('dh', 13, 2): P=2.49 E|W|^2=2.49 kurt=1.55 | R true 0.219, core 0.221, <e^-2i argF>_t 0.177, model 0.177 | on-line share: true 0.909, core 0.906
+('dir', 13, 3): P=3.72 E|W|^2=3.66 kurt=2.60 | R true 0.136, core 0.131, <e^-2i argF>_t 0.133, model 0.123 | on-line share: true 1.000, core 0.996
+('dh', 13, 3): P=2.63 E|W|^2=2.63 kurt=1.71 | R true 0.341, core 0.333, <e^-2i argF>_t 0.252, model 0.168 | on-line share: true 0.861, core 0.858
+('dir', 13, 4): P=3.72 E|W|^2=3.75 kurt=2.69 | R true 0.131, core 0.125, <e^-2i argF>_t 0.130, model 0.123 | on-line share: true 0.999, core 0.984
+('dh', 13, 4): P=1.89 E|W|^2=1.88 kurt=1.54 | R true 0.303, core 0.293, <e^-2i argF>_t 0.251, model 0.224 | on-line share: true 0.932, core 0.937
+('dir', 13, 5): P=3.72 E|W|^2=3.72 kurt=2.63 | R true 0.131, core 0.131, <e^-2i argF>_t 0.140, model 0.123 | on-line share: true 0.998, core 0.988
+('dh', 13, 5): P=2.81 E|W|^2=2.82 kurt=1.55 | R true 0.288, core 0.290, <e^-2i argF>_t 0.189, model 0.159 | on-line share: true 0.828, core 0.827
+('dir', 13, 6): P=3.72 E|W|^2=3.71 kurt=2.62 | R true 0.128, core 0.132, <e^-2i argF>_t 0.125, model 0.123 | on-line share: true 1.000, core 0.984
+('dh', 13, 6): P=4.07 E|W|^2=4.06 kurt=1.60 | R true 0.170, core 0.165, <e^-2i argF>_t 0.100, model 0.113 | on-line share: true 0.799, core 0.804
+('dir', 13, 12): P=3.72 E|W|^2=3.70 kurt=2.68 | R true 0.128, core 0.124, <e^-2i argF>_t 0.138, model 0.123 | on-line share: true 0.999, core 0.987
+C: core on-line share, Dirichlet L: 0.983..0.997 (true 0.998..1.001); DH types: core 0.731..0.956, true 0.726..0.957, corr 0.999
+D ('dir', 1, 1): core misses 14 true line zeros, nearest-neighbour gap median 0.206 (all zeros 0.733)
+D ('dh', 5, 2): core misses 14 true line zeros, nearest-neighbour gap median 0.113 (all zeros 0.807); 0.960 of 75 off-line zeros sit in a core gap > 1.5

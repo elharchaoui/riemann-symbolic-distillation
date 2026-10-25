@@ -1,0 +1,13 @@
+('dh', 5, 2): line 1681, off-line 75 (max Re 0.898); count gap -2.0, drift -1.9 | R line 0.413 -> all slots 0.350 (boundary approx. 0.350); law 0.304
+('dh', 7, 2): line 1768, off-line 70 (max Re 0.854); count gap -5.4, drift -5.9 | R line 0.389 -> all slots 0.324 (boundary approx. 0.283); law 0.276
+('dh', 7, 3): line 1651, off-line 129 (max Re 1.070); count gap -4.4, drift -5.2 | R line 0.347 -> all slots 0.274 (boundary approx. 0.162); law 0.202
+('dh', 11, 2): line 1934, off-line 43 (max Re 0.766); count gap -1.3, drift +0.0 | R line 0.297 -> all slots 0.267 (boundary approx. 0.241); law 0.240
+('dh', 11, 3): line 1866, off-line 77 (max Re 0.808); count gap -1.3, drift -0.0 | R line 0.296 -> all slots 0.247 (boundary approx. 0.196); law 0.222
+('dh', 11, 5): line 1846, off-line 86 (max Re 0.942); count gap -3.3, drift -3.7 | R line 0.299 -> all slots 0.245 (boundary approx. 0.186); law 0.212
+('dh', 11, 7): line 1467, off-line 256 (max Re 1.751); count gap -42.3, drift -38.7 | R line 0.225 -> all slots 0.151 (boundary approx. 0.111); law 0.047
+('dh', 13, 2): line 1873, off-line 93 (max Re 0.907); count gap -2.2, drift -0.9 | R line 0.219 -> all slots 0.183 (boundary approx. 0.108); law 0.177
+('dh', 13, 3): line 1775, off-line 142 (max Re 1.148); count gap -2.2, drift -2.5 | R line 0.341 -> all slots 0.260 (boundary approx. 0.155); law 0.167
+('dh', 13, 4): line 1922, off-line 66 (max Re 0.808); count gap -7.2, drift -10.2 | R line 0.303 -> all slots 0.254 (boundary approx. 0.215); law 0.224
+('dh', 13, 5): line 1707, off-line 176 (max Re 1.026); count gap -2.2, drift -1.2 | R line 0.288 -> all slots 0.214 (boundary approx. 0.066); law 0.158
+('dh', 13, 6): line 1646, off-line 206 (max Re 1.068); count gap -3.2, drift -2.6 | R line 0.170 -> all slots 0.122 (boundary approx. 0.066); law 0.114
+distance from the law: line zeros 0.766; all slots (exact) 0.369; R_all/law mean 1.369 +- 0.575
