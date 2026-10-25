@@ -7,7 +7,10 @@ No proof of anything is claimed; most results are rediscoveries used as validati
 - **Part I** (`experiments/e01`–`e07`): seven angles on ζ (counting, local statistics, primes ↔ zeros,
   de Bruijn–Newman heat flow, Li coefficients, synthesis).
 - **Part II** (`l00`–`l07`): the same angles on L(s, χ₋₄) and the Davenport–Heilbronn function.
-- **Part III–IV** (`l08`–`l10`): Gram locking across 34 L-functions; the law R = 1 − P(1 − e^(−1/P)).
+- **Part III–IV** (`l08`–`l11`): Gram locking across 34 L-functions. A random-phase law R = 1 − P(1 − e^(−1/P))
+  fits, but the literature check (`l11`) shows the Euler-product case is a known consequence of the explicit
+  formula (Arias de Reyna, arXiv:1403.7126): R ≈ (q/φ(q))/log(qT/2π). The Davenport–Heilbronn-type statistics
+  (vacancies, lattice order) are the part without a known explanation.
 
 The full write-up is `results/report.html` (built by `build_report.py`).
 

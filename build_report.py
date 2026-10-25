@@ -192,7 +192,9 @@ PART4 = {
     "L9_DHGAP": f"{dd['offline_in_big_core_gap']:.0%}", "L9_DHOFF": str(dd["n_offline"]),
     "L9_ZMISS": str(dz["missed_line_zeros"]), "L9_ZGAP": f"{dz['missed_gap_median']:.2f}", "L9_ZALL": f"{dz['all_gap_median']:.2f}",
     "L9_DMISS": str(dd["missed_line_zeros"]), "L10_CLOSED": str(l10["n_closed"]), "L10_DT": f"{l10['dev_all_vs_Rt']:.1%}",
-    "L10_ROWS": l10_rows, "LIMG9": img("l09"),
+    "L10_ROWS": l10_rows, "LIMG9": img("l09"), "LIMG11": img("l11"),
+    "L11_RMS": f"{json.loads((RESULTS / 'l11.json').read_text())['rms_q']:.1%}",
+    "L11_RMSH": f"{json.loads((RESULTS / 'l11.json').read_text())['rms_heur']:.1%}",
 }
 
 TEMPLATE = (RESULTS.parent / "report_template.html").read_text()

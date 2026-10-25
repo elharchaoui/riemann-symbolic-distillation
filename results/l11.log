@@ -1,0 +1,19 @@
+Euler products (29 points): rms relative error  (q/phi(q))/log(qT/2pi): 0.040;  heuristic R(P): 0.052
+zeta T~1.7e+03: R=0.1796  1/log(T/2pi)=0.1780  R(P)=0.1835
+zeta T~1.4e+04: R=0.1274  1/log(T/2pi)=0.1295  R(P)=0.1323
+zeta T~1.1e+05: R=0.0990  1/log(T/2pi)=0.1024  R(P)=0.1041
+zeta T~6.2e+05: R=0.0858  1/log(T/2pi)=0.0869  R(P)=0.0882
+zeta T~1.0e+06: R=0.0825  1/log(T/2pi)=0.0832  R(P)=0.0843
+zeta T~2.7e+11: R=0.0366  1/log(T/2pi)=0.0409  R(P)=0.0412
+zeta T~1.4e+20: R=0.0229  1/log(T/2pi)=0.0224  R(P)=0.0225
+('dh', 5, 2): R (all slots) 0.350; explicit-formula average 0.292; R(P) 0.304
+('dh', 7, 2): R (all slots) 0.324; explicit-formula average 0.265; R(P) 0.276
+('dh', 7, 3): R (all slots) 0.274; explicit-formula average 0.199; R(P) 0.202
+('dh', 11, 2): R (all slots) 0.267; explicit-formula average 0.252; R(P) 0.240
+('dh', 11, 3): R (all slots) 0.247; explicit-formula average 0.203; R(P) 0.222
+('dh', 11, 5): R (all slots) 0.245; explicit-formula average 0.156; R(P) 0.212
+('dh', 11, 7): R (all slots) 0.145; explicit-formula average 38.551; R(P) 0.047
+('dh', 13, 2): R (all slots) 0.183; explicit-formula average 0.114; R(P) 0.177
+('dh', 13, 3): R (all slots) 0.260; explicit-formula average 0.292; R(P) 0.167
+('dh', 13, 4): R (all slots) 0.254; explicit-formula average 0.212; R(P) 0.224
+('dh', 13, 5): R (all slots) 0.214; explicit-formula average 0.111; R(P) 0.158
